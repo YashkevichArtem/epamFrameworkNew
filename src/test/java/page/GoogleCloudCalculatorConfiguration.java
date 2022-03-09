@@ -139,6 +139,7 @@ public class GoogleCloudCalculatorConfiguration extends AbstractPage {
     }
 
     public String getTotalEstimatedCost() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[@class='md-title']//b[@class='ng-binding']")));
         String input = TotalEstimatedCost.getText().replaceAll("Total Estimated Cost: ", "");
         return input.replaceAll(" per 1 month", "");
     }
