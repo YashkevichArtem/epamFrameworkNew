@@ -31,9 +31,6 @@ public class YopMailGenerator extends AbstractPage {
     @FindBy(xpath = "//iframe[@id='ifmail']")
     private WebElement emailFrame;
 
-    @FindBy(xpath = "//h3[contains(text(),'USD')]")
-    private WebElement totalCost;
-
     @FindBy(xpath = "//div[@class='flexcx']//a[@href='email-generator']")
     private WebElement btnEmailGenerator;
 
@@ -70,10 +67,10 @@ public class YopMailGenerator extends AbstractPage {
         }
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='flexcx']//a[@href='email-generator']")));
         btnEmailGenerator.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='egen']")));
     }
 
     public void emailGenerator() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='egen']")));
         emailAddress = generatedEmail.getText();
         driver.switchTo().window(windowCalculator);
         driver.switchTo().frame(0);
